@@ -1,3 +1,10 @@
+@import '../styles/variables.scss';
+
 body {
-    background-color: red;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(34deg, rgba(11, 12, 16, 1) 0%, rgba(15, 23, 26, 1) 36%, rgba(35, 75, 76, 1) 94%);
+    font-family: $rowdiesRegular;
+    font-size: 40px;
+    color: #fff;
 }
