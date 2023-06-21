@@ -1,35 +1,9 @@
-// const path = require('path');
-
-// module.exports = {
-//   entry: './src/index.ts',
-//   output: {
-//     path: path.resolve(__dirname, 'dist'),
-//     filename: 'bundle.js',
-//   },
-//   resolve: {
-//     extensions: ['.ts', '.js'],
-//   },
-//   module: {
-//     rules: [
-//       {
-//         test: /\.ts$/,
-//         exclude: /node_modules/,
-//         use: 'ts-loader',
-//       },
-//       {
-//         test: /\.(css|scss)$/,
-//         use: ['style-loader', 'css-loader', 'sass-loader'],
-//       },
-//     ],
-//   },
-//   devtool: 'inline-source-map',
-// };
-
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+//   mode: 'development',
   entry: './src/index.ts',
   output: {
     filename: 'bundle.js',
@@ -42,52 +16,69 @@ module.exports = {
         use: [
           'style-loader',
           'css-loader',
-          'sass-loader'
-        ]
+          'resolve-url-loader',
+          { loader: 'sass-loader', options: { sourceMap: true } },
+        ],
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-              name: '[name].[ext]',
-              outputPath: 'images'
-            }
-          }
-        ]
+        test: /\.ts?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
       },
+      // {
+      //   test: /\.ts$/,
+      //   exclude: /node_modules/,
+      //   use: ['ts-loader'],
+      // },
+      // {
+      //   test: /.[tj]s$/,
+      //   use: 'ts-loader',
+      //   exclude: /node_modules/,
+      // },
+      // {
+      //   test: /\.(png|svg|jpg|jpeg|gif)$/i,
+      //   type: 'asset/resource',
+      // },
+      // {
+      //   test: /\.mp3$/,
+      //   use: [
+      //     {
+      //       loader: 'file-loader',
+      //       options: {
+      //         name: '[name].[ext]',
+      //         outputPath: 'audio'
+      //       }
+      //     }
+      //   ]
+      // },
+    //   {
+    //     test: /\.(woff|woff2|eot|ttf|otf)$/,
+    //     use: [
+    //       {
+    //         loader: 'file-loader',
+    //         options: {
+    //           name: '[name].[ext]',
+    //           outputPath: 'fonts'
+    //         }
+    //       }
+    //     ]
+    //   },
       {
-        test: /\.mp3$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'audio'
-            }
-          }
-        ]
+        test: /\.html$/,
+        use: 'html-loader',
       },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'fonts'
-            }
-          }
-        ]
-      }
     ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    // plugins: [
+    //   new TsconfigPathsPlugin({ configFile: './tsconfig.json' }),
+    // ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html'
-    })
+    }),
   ],
   devServer: {
     static: path.join(__dirname, 'dist'),

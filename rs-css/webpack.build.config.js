@@ -15,21 +15,16 @@ module.exports = {
         use: [
           'style-loader',
           'css-loader',
-          'sass-loader'
-        ]
+          'resolve-url-loader',
+          { loader: 'sass-loader', options: { sourceMap: true } },
+        ],
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-              name: '[name].[ext]',
-              outputPath: 'images'
-            }
-          }
-        ]
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: "./images/[hash][ext]",
+        },
       },
       {
         test: /\.(mp3)$/,

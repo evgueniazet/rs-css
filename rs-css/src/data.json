@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "layout": [
+      { "id": 1, "text": "<lemon/>" },
+      { "id": 2, "text": "<lemon>" }
+    ],
+    "elements": [
+      {
+        "isActive": "true",
+        "text": "<lemon id=\"1\" class=\"lemon first-elem animation\"></lemon>",
+        "elementsInside": []
+      },
+      {
+        "id": 2,
+        "isActive": "true",
+        "text": "<lemon id=\"2\"  class=\"lemon second-elem animation\"></lemon>",
+        "elementsInside": []
+      }
+    ],
+    "answer": "lemon"
+  }
+]
