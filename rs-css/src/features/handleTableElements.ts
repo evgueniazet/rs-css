@@ -17,12 +17,11 @@ export const handleTableElements = (data: IData[]): void => {
 
             htmlFieldChildrenArr.forEach((item) => {
                 if (Number(id) === Number(item.id)) {
-                    // Replace by adding a class 
                     if (!isMarked) {
-                        (item as HTMLElement).style.color = 'white';
+                        (item as HTMLElement).classList.add('layout-field-html-item-active');
                         isMarked = true;
                     } else {
-                        (item as HTMLElement).style.color = 'black';
+                        (item as HTMLElement).classList.remove('layout-field-html-item-active');
                         isMarked = false;
                     }
                 }

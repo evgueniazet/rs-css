@@ -13,6 +13,7 @@ export const drawLayout = (data: IData[]): void => {
             if (elem.id === id) {
                 elem.layout.forEach((item) => {
                     const divElem = document.createElement('div');
+                    divElem.classList.add('layout-field-html-item');
                     divElem.setAttribute('id', `${item.id}`)
                     htmlField.appendChild(divElem);
                     divElem.textContent += item.text;
