@@ -9,10 +9,8 @@ export const handleAnswer = (data: IData[]) => {
     const handleAnswerSubmit = () => {
         if (tableWrapper) {
             const tableWrapperId = tableWrapper.getAttribute('id');
-            console.log('tableWrapperId', tableWrapperId);
 
             data.forEach((elem) => {
-                console.log('elem', elem);
                 if (elem.id === tableWrapperId) {
                     if (elem.answer === answer?.value) {
                         console.log('правильный ответ');
@@ -28,6 +26,15 @@ export const handleAnswer = (data: IData[]) => {
             });
         }
     };
+
+    if (answer) {
+        answer.addEventListener("keyup", (event) => {
+            if (event.key === "Enter") {
+                handleAnswerSubmit();
+
+            }
+        });
+    }
 
     submitButton?.addEventListener('click', handleAnswerSubmit);
 };

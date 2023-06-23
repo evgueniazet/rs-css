@@ -1,6 +1,8 @@
 @import '../variables.scss';
 @import '../animations/circle.scss';
 @import '../animations/shake.scss';
+@import '../animations/typing.scss';
+@import '../animations/blinkCaret.scss';
 
 .content {
 
@@ -17,12 +19,8 @@
         margin: 0;
     }
 
-    &-subtitle {
-        font-family: $rowdiesRegular;
-        font-size: 1.3em;
-        color: $secondary;
-        letter-spacing: 0.06em;
-        margin: 0;
+    &-button {
+        cursor: pointer;
     }
 
 }
@@ -41,6 +39,7 @@
     height: 50px;
     border-radius: 70% 100% / 30% 100%;
     cursor: pointer;
+    // box-shadow: 10px 5px 5px $bg;
 }
 
 .first-elem {
@@ -71,10 +70,9 @@
 
     &-active {
         animation-name: shake;
-        animation-duration: 1s;
+        animation-duration: .5s;
         animation-iteration-count: 1;
         animation-timing-function: ease-in-out;
-        // transform-origin: center bottom;
     }
 
     &-css {
@@ -107,6 +105,22 @@
 
     &-text {
         margin-left: 1em;
+
+        &-answer {
+
+            &-active {
+                font-family: monospace;
+                overflow: hidden;
+                border-right: .15em solid $primaryDark;
+                white-space: nowrap;
+                margin: 0 auto;
+                letter-spacing: .15em;
+                animation:
+                    typing 3.5s steps(30, end),
+                    blinkCaret .5s step-end infinite;
+            }
+
+        }
     }
 
     &-header {
