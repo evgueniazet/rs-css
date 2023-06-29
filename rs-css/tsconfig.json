@@ -1,6 +1,6 @@
 {
-  "types": [ "node" ],
-  "typeRoots": [ "../node_modules/@types" ],
+  "types": ["node"],
+  "typeRoots": ["../node_modules/@types"],
   "compilerOptions": {
     "noImplicitAny": true,
     "target": "es5",
@@ -10,7 +10,7 @@
     "moduleResolution": "node",
     "allowJs": true,
     "resolveJsonModule": true,
-    "esModuleInterop": true,
+    "esModuleInterop": true
   },
   "exclude": ["./node_modules"],
   "rootDir": "src"
