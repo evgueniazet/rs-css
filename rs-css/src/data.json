@@ -3,42 +3,52 @@
     "id": "1",
     "layout": [
       { "id": 1, "text": "<lemon/>" },
-      { "id": 2, "text": "<lemon>" }
+      { "id": 2, "text": "<lemon/>" }
     ],
     "elements": [
       {
+        "id": 1,
         "isActive": "true",
         "text": "<lemon id=\"1\" class=\"lemon first-elem animation\"></lemon>",
-        "elementsInside": []
+        "children": []
       },
       {
-        "id": 2,
+        "id": "2",
         "isActive": "true",
         "text": "<lemon id=\"2\"  class=\"lemon second-elem animation\"></lemon>",
-        "elementsInside": []
+        "children": []
       }
     ],
-    "answer": "lemon"
+    "answer": ["lemon", "1"]
   },
   {
     "id": "2",
     "layout": [
-      { "id": 1, "text": "<lemon/>" },
-      { "id": 2, "text": "<lemon>" }
+      { "id": 1, "text": "<plate/>" },
+      { "id": 2, "text": "<lemon class=\"yellow\">" },
+      { "id": 3, "text": "</plate>" },
+      { "id": 4, "text": "</lemon>" }
     ],
     "elements": [
       {
-        "isActive": "true",
-        "text": "<lemon id=\"1\" class=\"lemon first-elem animation\"></lemon>",
-        "elementsInside": []
+        "id": 1,
+        "isActive": "false",
+        "text": "<plate id=\"1\" class=\"plate first-elem \"></plate>",
+        "children": [
+          {
+            "id": "1",
+            "isActive": "true",
+            "text": "<lemon class=\"lemon element-inside-one animation\"></lemon>"
+          }
+        ]
       },
       {
         "id": 2,
-        "isActive": "true",
-        "text": "<lemon id=\"2\"  class=\"lemon second-elem animation\"></lemon>",
-        "elementsInside": []
+        "isActive": "false",
+        "text": "<lemon id=\"2\" class=\"lemon second-elem animation\"></lemon>",
+        "children": []
       }
     ],
-    "answer": "orange"
+    "answer": [".yellow"]
   }
 ]
