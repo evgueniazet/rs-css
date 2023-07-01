@@ -1,35 +1,56 @@
 import { IData } from '../interfaces/IData';
 
 export const handleTableElements = (data: IData[]): void => {
-  const table: HTMLElement | null = document.querySelector('.table');
-  const htmlField: HTMLElement | null = document.querySelector('.layout-field-html');
-  let isMarked = false;
+    const table: HTMLElement | null = document.querySelector('.table');
+    let isMarked = false;
+    const tooltip = document.createElement('div');
+    tooltip.classList.add('tooltip');
 
-  if (table && htmlField) {
-    const childrenTable = table.children;
-    const childrenTableArr = Array.from(childrenTable);
-    const htmlFieldChildrenArr = Array.from(htmlField.children);
+    document.addEventListener('DOMContentLoaded', () => {
+        const htmlFieldItemArr = document.querySelectorAll('.layout-field-html-item');
 
-    const handleChildMouseOver = (e: Event) => {
-      const targetElement = e.target as HTMLElement | null;
-      const id = targetElement?.getAttribute('id');
+        if (table && htmlFieldItemArr) {
 
-      htmlFieldChildrenArr.forEach((item) => {
-        if (Number(id) === Number(item.id)) {
-          if (!isMarked) {
-            (item as HTMLElement).classList.add('layout-field-html-item-active');
-            isMarked = true;
-          } else {
-            (item as HTMLElement).classList.remove('layout-field-html-item-active');
-            isMarked = false;
-          }
+            const childrenTable = table.children;
+            const childrenTableArr = Array.from(childrenTable);
+
+            const handleChildMouseOver = (e: Event) => {
+
+                const targetElement = e.target as HTMLElement | null;
+                const id = targetElement?.getAttribute('id');
+
+
+                htmlFieldItemArr.forEach((item) => {
+                    if (Number(id) === Number(item.id)) {
+
+                        htmlFieldItemArr
+                        if (!isMarked) {
+                            (item as HTMLElement).classList.add('layout-field-html-item-active');
+                            isMarked = true;
+
+                            if (targetElement && tooltip) {
+                                targetElement.classList.add('shadow');
+                                targetElement.appendChild(tooltip);
+                                tooltip.innerHTML = item.innerHTML
+                            }
+
+                        } else {
+                            (item as HTMLElement).classList.remove('layout-field-html-item-active');
+                            isMarked = false;
+
+                            if (targetElement && tooltip) {
+                                targetElement.classList.remove('shadow');
+                                targetElement.removeChild(tooltip);
+                            }
+                        }
+                    }
+                });
+            };
+
+            childrenTableArr.forEach((child) => {
+                child.addEventListener('mouseover', handleChildMouseOver);
+                child.addEventListener('mouseout', handleChildMouseOver);
+            });
         }
-      });
-    };
-
-    childrenTableArr.forEach((child) => {
-      child.addEventListener('mouseover', handleChildMouseOver);
-      child.addEventListener('mouseout', handleChildMouseOver);
     });
-  }
 };

@@ -1,6 +1,5 @@
 import { IData } from '../interfaces/IData';
-import { drawElements } from './drawElements';
-import { drawLayout } from './drawLayout';
+import { updateLevel } from './updateLevel';
 
 export const handleAnswer = (data: IData[]) => {
     const submitButton = document.querySelector('.layout-field-text-button');
@@ -15,12 +14,8 @@ export const handleAnswer = (data: IData[]) => {
 
             data.forEach((elem) => {
                 if (elem.id === tableWrapperId) {
-                    // const answer: HTMLInputElement | null = document.querySelector('.layout-field-text-answer');
 
                     if (answer) {
-
-                        console.log('answer.value', answer.value);
-
                         const hasCorrectAnswer = data.some((elem) => elem.answer.includes(answer.value));
 
                         if (hasCorrectAnswer) {
@@ -29,8 +24,9 @@ export const handleAnswer = (data: IData[]) => {
                                 answer.value = '';
                                 level = String(Number(level) + 1);
                                 localStorage.setItem(levelKey, level);
-                                drawElements(data, Number(level));
-                                drawLayout(data, level);
+             
+                                updateLevel(data, level);
+
                             }
                         } else {
                             layoutField?.classList.add('layout-field-active');

@@ -3,6 +3,7 @@
 @import '../animations/shake.scss';
 @import '../animations/typing.scss';
 @import '../animations/blinkCaret.scss';
+@import './table.scss';
 
 .content {
 
@@ -23,61 +24,6 @@
         cursor: pointer;
     }
 
-}
-
-.table {
-    position: relative;
-    background: no-repeat center/60% url('../../../src/images/table.png');
-    height: 300px;
-    width: 900px;
-}
-
-.lemon {
-    display: block;
-    background-color: yellow;
-    width: 50px;
-    height: 50px;
-    border-radius: 70% 100% / 30% 100%;
-    cursor: pointer;
-}
-
-.plate {
-    width: 100px;
-    height: 100px;
-    background-color: #eaeaea;
-    border-radius: 50%;
-    position: relative;
-}
-
-.plate::before {
-    content: '';
-    width: 80px;
-    height: 80px;
-    background-color: #fff;
-    border-radius: 50%;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-}
-
-.first-elem {
-    position: absolute;
-    top: 30%;
-    left: 40%;
-}
-
-.second-elem {
-    position: absolute;
-    top: 30%;
-    left: 53%;
-}
-
-.active {
-    animation-name: circle;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-    transform-origin: center bottom;
 }
 
 .layout-field {
@@ -106,11 +52,17 @@
         border: 1px solid $primaryDark;
         border-radius: 3px;
         padding: 0.7em;
+        white-space: pre;
 
         &-item {
             color: $secondary;
+            cursor: pointer;
 
             &-active {
+                color: $primaryLight;
+            }
+
+            &:hover {
                 color: $primaryLight;
             }
         }

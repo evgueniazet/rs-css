@@ -1,49 +1,34 @@
+import { log } from "console";
 import { IData } from "../interfaces/IData";
 
 export const drawElements = (data: IData[], level: number) => {
 
-    const table: HTMLElement | null = document.querySelector('.table')!;
+    const table: HTMLElement = document.querySelector('.table')!;
     const tableChildren = table.children;
 
     while (table.firstChild) {
         table.removeChild(table.firstChild);
     }
 
+    if (data[level]) {
 
-    const addParentElement = () => {
-        if (data[level]) {
-            data[level].elements.forEach((item) => {
-                // console.log('item', item);
+        data[level].elements.forEach((item) => {
 
-                if (item.children && item.children.length > 0) {
-                    item.children.forEach((child) => {
-                        // table.innerHTML += item.text[0];
-                        console.log('child', item.text[0]);
+            table.innerHTML += item.text;
 
+            if (item.children && item.children.length > 0) {
 
-                    })
-                } else {
-                    table.innerHTML += item.text[0];
+                for (let i = 0; i < tableChildren.length; i++) {
+
+                    if (Number(tableChildren[i].id) === Number(item.id)) {
+
+                        item.children.forEach((child) => {
+                            tableChildren[i].innerHTML = child.text[0];
+                        })
+                    }
                 }
-            });
-
-
-            // data[level].layout.forEach((i) => {
-
-            //     const tableChildrenArr = Array.from(tableChildren);
-            //     tableChildrenArr.forEach((element) => {
-            //         element.setAttribute('title', i.text);
-            //     });
-            // });
-        }
-    };
-
-
-    const addChildrenElement = () => {
-
+            }
+        });
     }
 
-
-    addParentElement();
-    addChildrenElement();
-}
+};
