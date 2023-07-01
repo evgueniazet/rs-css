@@ -7,8 +7,13 @@ import { handleAnswer } from './features/handleIAnswer';
 import { handleHelpButton } from './features/handleHelpButton';
 // const hljs = require('highlight.js');
 
+const level = localStorage.getItem('gameLevel');
+
 drawTable(data);
-drawLayout(data);
 handleTableElements(data);
 handleAnswer(data);
 handleHelpButton(data);
+
+if (level !== null) {
+    drawLayout(data, level);
+}

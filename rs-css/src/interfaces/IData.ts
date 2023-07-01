@@ -5,8 +5,7 @@ interface ILayoutItem {
 
 interface IElement {
     id: string | number;
-    isActive: string;
-    text: string;
+    text: string[];
     children?: IElement[];
 }
 

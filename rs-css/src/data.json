@@ -8,47 +8,166 @@
     "elements": [
       {
         "id": 1,
-        "isActive": "true",
-        "text": "<lemon id=\"1\" class=\"lemon first-elem animation\"></lemon>",
+        "text": ["<lemon id=\"1\" class=\"lemon first-elem active\"></lemon>"],
         "children": []
       },
       {
         "id": "2",
-        "isActive": "true",
-        "text": "<lemon id=\"2\"  class=\"lemon second-elem animation\"></lemon>",
+        "text": [
+          "<lemon id=\"2\"  class=\"lemon second-elem active\"></lemon>"
+        ],
         "children": []
       }
     ],
-    "answer": ["lemon", "1"]
+    "answer": ["lemon"]
   },
+
   {
     "id": "2",
     "layout": [
-      { "id": 1, "text": "<plate/>" },
-      { "id": 2, "text": "<lemon class=\"yellow\">" },
-      { "id": 3, "text": "</plate>" },
-      { "id": 4, "text": "</lemon>" }
+      { "id": 1, "text": "<plate>" },
+      { "id": 2, "text": "<plate class=\"plate\">" }
     ],
     "elements": [
       {
         "id": 1,
-        "isActive": "false",
-        "text": "<plate id=\"1\" class=\"plate first-elem \"></plate>",
+        "text": ["<plate id=\"1\" class=\"plate first-elem-plate \">"],
+        "children": []
+      },
+
+      {
+        "id": 2,
+        "text": [
+          "<plate id=\"1\" class=\"plate plate-orange second-elem-plate active \">"
+        ],
+        "children": []
+      }
+    ],
+    "answer": [".plate"]
+  },
+
+  {
+    "id": "3",
+    "layout": [
+      { "id": 1, "text": "<plate>" },
+      { "id": 2, "text": "<lemon/>" },
+      { "id": 3, "text": "</plate>" },
+      { "id": 4, "text": "<plate/>" }
+    ],
+    "elements": [
+      {
+        "id": 1,
+        "text": ["<plate id=\"1\" class=\"plate first-elem-plate \">"],
         "children": [
           {
-            "id": "1",
-            "isActive": "true",
-            "text": "<lemon class=\"lemon element-inside-one animation\"></lemon>"
+            "id": 1,
+            "text": [
+              "<lemon id=\"1\" class=\"lemon first-elem-inside active\"></lemon>"
+            ],
+            "children": []
+          }
+        ]
+      },
+
+      {
+        "id": 2,
+        "text": ["<plate id=\"2\" class=\"plate second-elem-plate\">"],
+        "children": []
+      }
+    ],
+    "answer": ["lemon"]
+  },
+
+  {
+    "id": "5",
+    "layout": [
+      { "id": 1, "text": "<lemon/>" },
+      { "id": 2, "text": "<orange/>" },
+      { "id": 3, "text": "<plate>" },
+      { "id": 4, "text": "<lemon/>" },
+      { "id": 5, "text": "<orange id=\"orange\"/>" }
+    ],
+    "elements": [
+      {
+        "id": 1,
+        "text": ["<lemon id=\"1\" class=\"lemon first-elem \"></lemon>"],
+        "children": []
+      },
+      {
+        "id": 2,
+        "text": ["<orange id=\"2\" class=\"orange second-elem \">"],
+        "children": []
+      },
+      {
+        "id": 3,
+        "text": [
+          "<plate id=\"3\" class=\"plate plate-pink third-elem-plate \">"
+        ],
+        "children": [
+          {
+            "id": 1,
+            "text": ["<lemon id=\"1\" class=\"lemon first-elem-inside \">"],
+            "children": []
           }
         ]
       },
       {
-        "id": 2,
-        "isActive": "false",
-        "text": "<lemon id=\"2\" class=\"lemon second-elem animation\"></lemon>",
+        "id": 4,
+        "text": [
+          "<orange id=\"4\" class=\"orange orange-small fourth-elem  active\">"
+        ],
         "children": []
       }
     ],
-    "answer": [".yellow"]
+    "answer": ["#orange"]
+  }
+
+  {
+    "id": "4",
+    "layout": [
+      { "id": 1, "text": "<plate class=\"orange\"/>" },
+      { "id": 2, "text": "<plate class=\"plate\">" },
+      { "id": 3, "text": "<orange class=\"orange\">" },
+      { "id": 4, "text": "<plate/>" },
+      { "id": 5, "text": "<plate class=\"pink\"/>" },
+      { "id": 6, "text": "<orange class=\"orange\"/>" },
+      { "id": 7, "text": "<plate/>" }
+    ],
+    "elements": [
+      {
+        "id": 1,
+        "text": [
+          "<plate id=\"1\" class=\"plate plate-orange first-elem-plate \">"
+        ],
+        "children": []
+      },
+      {
+        "id": 2,
+        "text": ["<plate id=\"2\" class=\"plate second-elem-plate \">"],
+        "children": [
+          {
+            "id": 1,
+            "text": [
+              "<orange id=\"1\" class=\"orange first-elem-inside active \">"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "text": [
+          "<plate id=\"3\" class=\"plate plate-pink third-elem-plate \">"
+        ],
+        "children": [
+          {
+            "id": 1,
+            "text": ["<orange id=\"1\" class=\"orange first-elem-inside \">"],
+            "children": []
+          }
+        ]
+      }
+    ],
+    "answer": [".plate .orange"]
   }
 ]

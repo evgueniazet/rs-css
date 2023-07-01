@@ -3,7 +3,7 @@ import { drawElements } from './drawElements';
 
 export const drawTable = (data: IData[]): void => {
     const tableWrapper = document.querySelector('.table-wrapper');
-    const table: HTMLElement | null = document.querySelector('.table')!;
+    // const table: HTMLElement | null = document.querySelector('.table')!;
     const level = 0;
     const levelKey = 'gameLevel';
 
@@ -11,6 +11,6 @@ export const drawTable = (data: IData[]): void => {
         tableWrapper.setAttribute('id', data[level].id);
     }
 
-    drawElements(data, level, table);
+    drawElements(data, level);
     localStorage.setItem(levelKey, `${level}`);
 };

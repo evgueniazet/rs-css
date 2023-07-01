@@ -39,7 +39,25 @@
     height: 50px;
     border-radius: 70% 100% / 30% 100%;
     cursor: pointer;
-    // box-shadow: 10px 5px 5px $bg;
+}
+
+.plate {
+    width: 100px;
+    height: 100px;
+    background-color: #eaeaea;
+    border-radius: 50%;
+    position: relative;
+}
+
+.plate::before {
+    content: '';
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
 
 .first-elem {
@@ -54,7 +72,7 @@
     left: 53%;
 }
 
-.animation {
+.active {
     animation-name: circle;
     animation-duration: 3s;
     animation-iteration-count: infinite;
