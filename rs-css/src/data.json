@@ -29,13 +29,13 @@
     "elements": [
       {
         "id": "1",
-        "text": "<plate data-layout-id=\"1\" class=\"table-item plate \">",
+        "text": "<div data-layout-id=\"1\" class=\"table-item plate \">",
         "children": []
       },
 
       {
         "id": "2",
-        "text": "<plate data-layout-id=\"2\" class=\"table-item plate plate-orange active \">",
+        "text": "<div data-layout-id=\"2\" class=\"table-item plate plate-orange active \">",
         "children": []
       }
     ],
@@ -53,7 +53,7 @@
     "elements": [
       {
         "id": "1",
-        "text": "<plate data-layout-id=\"1\" class=\"table-item plate \">",
+        "text": "<div data-layout-id=\"1\" class=\"table-item plate \">",
         "children": [
           {
             "id": "3",
@@ -126,12 +126,12 @@
     "elements": [
       {
         "id": "1",
-        "text": "<plate data-layout-id=\"1\" class=\"table-item plate plate-orange\">",
+        "text": "<div data-layout-id=\"1\" class=\"table-item plate plate-orange\">",
         "children": []
       },
       {
         "id": "2",
-        "text": "<plate data-layout-id=\"2\" class=\"table-item plate \">",
+        "text": "<div data-layout-id=\"2\" class=\"table-item plate \">",
         "children": [
           {
             "id": "1",
@@ -142,7 +142,7 @@
       },
       {
         "id": "3",
-        "text": "<plate data-layout-id=\"4\" class=\"table-item plate plate-pink  \">",
+        "text": "<div data-layout-id=\"4\" class=\"table-item plate plate-pink  \">",
         "children": [
           {
             "id": "1",

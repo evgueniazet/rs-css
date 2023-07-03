@@ -18,7 +18,6 @@
             <button class="content-button">I need help!</button>
             <div class="table-wrapper">
                 <div class="table"></div>
-                <!-- <div class="tooltip">ПОДСКАЗКА</div> -->
             </div>
             <div class="layout-field">
                 <div class="layout-field-css">
@@ -43,15 +42,22 @@
                             <li></li>
                             <li></li>
                             <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
                         </ol>
-                        <div class="layout-field-text">
-                            <input class="layout-field-text-answer" type="text" value="">
-                            <button class="layout-field-text-button" type="submit">Enter</button>
+                        <div class="layout-field-text-wrapper">
+                            <div class="layout-fiels-text">
+                                <input class="layout-field-text-answer" type="text" value="">
+                                <button class="layout-field-text-button" type="submit">Enter</button>
+                            </div>
+                            <div class="layout-field-text-description">
+                                <span>{</span>
+                                <span> /* Styles would go here. */</span>
+                                <span>}</span>
+                                <span>/*</span>
+                                <span>Type a number to skip to a level.</span>
+                                <span>Ex &rarr; "5" for level 5</span>
+                                <span>*/</span>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -77,11 +83,6 @@
                             <li></li>
                             <li></li>
                             <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
                         </ol>
                         <div class="layout-field-text">Layout</div>
                     </div>
@@ -90,7 +91,20 @@
         </div>
         <footer class="footer"></footer>
     </section>
-    <section class="wrapper-levels"></section>
+    <section class="wrapper-levels">
+        <div class="levels">
+            <header class="levels-header">
+                <h1 class="levels-title">Title</h1>
+                <div class="levels-buttons">
+                    <button class="levels-button">&lt;</button>
+                    <button class="levels-button">&gt;</button>
+                    <button class="levels-button"> &equiv;</button>
+                </div>
+            </header>
+            <div class="levels-list"></div>
+
+        </div>
+    </section>
 </body>
 
 </html>

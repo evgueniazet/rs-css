@@ -1,0 +1,51 @@
+@import '../variables.scss';
+
+.wrapper-levels {
+    height: 80%;
+    width: 400px;
+    border: 1px solid $primaryLight;
+    border-radius: 5px;
+}
+
+.levels {
+    padding: 20px;
+
+    &-title {
+        margin: 0;
+        color: $secondary;
+        margin-top: 10px;
+        font-family: $rowdiesRegular;
+    }
+
+    &-header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &-buttons {
+        // display: flex;
+    }
+
+    &-button {
+        cursor: pointer;
+        font-size: 24px;
+        border: 1px solid $primaryDark;
+        border-radius: 4px;
+        padding: 10px 15px;
+        background-color: transparent;
+        color: $secondary;
+        margin-top: 10px;
+        transition: color .3 ease, background-color .3s ease;
+        cursor: pointer;
+
+        &:not(:first-child) {
+            margin-left: 10px;
+        }
+
+        &:hover {
+            color: $bg;
+            background-color: $primaryDark;
+            transition: color .3 ease, background-color .3s ease;
+        }
+    }
+}
