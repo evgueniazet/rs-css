@@ -1,8 +1,6 @@
 @import '../variables.scss';
 @import '../animations/circle.scss';
 @import '../animations/shake.scss';
-@import '../animations/typing.scss';
-@import '../animations/blinkCaret.scss';
 @import '../animations/slideIn.scss';
 @import '../animations/flashing.scss';
 @import '../animations/glowing.scss';
@@ -120,7 +118,6 @@
 
             &-active {
                 border-right: .15em solid $primaryDark;
-                animation: typing 1s steps(40), blink-caret 0.5s step-end infinite alternate;
             }
 
         }

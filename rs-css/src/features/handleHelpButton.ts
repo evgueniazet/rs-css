@@ -7,12 +7,17 @@ export const handleHelpButton = (data: IData[], level: number): void => {
   );
 
   const handleHelpButtonClick = (): void => {
-    data[level].answer.forEach((answerItem) => {
-      if (answer) {
-        answer.classList.add("layout-field-text-answer-active");
-        answer.value = answerItem;
-      }
-    });
+    if (answer) {
+      let counter = 0;
+      const interval = setInterval(() => {
+        if (counter < data[level].answer[0].length) {
+          counter++;
+          answer.value = data[level].answer[0].slice(0, counter);
+        } else {
+          clearInterval(interval);
+        }
+      }, 200);
+    }
   };
   helpButton?.addEventListener("click", handleHelpButtonClick);
 };
