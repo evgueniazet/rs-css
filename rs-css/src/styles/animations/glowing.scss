@@ -1,0 +1,13 @@
+@import '../variables.scss';
+
+@keyframes glowing {
+    0% {
+        color: $primaryLight;
+        text-shadow: 0 0 5px $primaryLight;
+    }
+
+    100% {
+        color: $white;
+        text-shadow: 0 0 20px $primaryDark;
+    }
+}

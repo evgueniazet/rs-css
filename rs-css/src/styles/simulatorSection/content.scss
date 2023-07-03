@@ -5,6 +5,7 @@
 @import '../animations/blinkCaret.scss';
 @import '../animations/slideIn.scss';
 @import '../animations/flashing.scss';
+@import '../animations/glowing.scss';
 @import './table.scss';
 
 
@@ -13,14 +14,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    // padding: 50px;
 
     &-title {
         font-family: $rowdiesRegular;
         font-size: 2.5em;
         color: $primaryLight;
-        letter-spacing: 0.3em;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
         margin: 0;
+        animation: glowing 2s ease-in-out infinite alternate;
     }
 
     &-button {
@@ -64,12 +66,15 @@
     }
 
     &-html {
-        width: 100%;
         margin-left: 10px;
-        border: 1px solid $primaryDark;
-        border-radius: 3px;
-        padding: 0.7em;
-        white-space: pre;
+
+        &-wrapper {
+            width: 100%;
+            margin-left: 10px;
+            border: 1px solid $primaryDark;
+            border-radius: 3px;
+            padding: 0.7em;
+        }
 
         &-item {
             color: $secondary;
@@ -88,6 +93,7 @@
     &-content {
         display: flex;
         color: $secondary;
+        margin-top: 10px;
     }
 
     &-text {
@@ -99,7 +105,6 @@
         &-answer {
 
             height: 30px;
-            // width: 300px;
             background-color: transparent;
             border: 1px solid $secondary;
             border-radius: 4px;
@@ -114,11 +119,7 @@
             }
 
             &-active {
-                // padding: 0 5px;
-                // box-sizing: border-box;
                 border-right: .15em solid $primaryDark;
-                // margin: 0 auto;
-                // animation: typing 3.5s steps(30, end), blinkCaret .5s step-end infinite;
                 animation: typing 1s steps(40), blink-caret 0.5s step-end infinite alternate;
             }
 
@@ -135,7 +136,7 @@
             flex-direction: column;
 
             & span:nth-child(4) {
-                margin-top: 18px;
+                margin-top: 10px;
             }
         }
     }

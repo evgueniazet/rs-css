@@ -8,7 +8,6 @@ export const handleHelpButton = (data: IData[], level: number): void => {
 
   const handleHelpButtonClick = (): void => {
     data[level].answer.forEach((answerItem) => {
-      console.log("answer", answer);
       if (answer) {
         answer.classList.add("layout-field-text-answer-active");
         answer.value = answerItem;
