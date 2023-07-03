@@ -1,14 +1,19 @@
 import { IData } from "../interfaces/IData";
 
-export const handleHelpButton = (data: IData[]): void => {
+export const handleHelpButton = (data: IData[], level: number): void => {
   const helpButton = document.querySelector(".content-button");
-  const tableWrapper = document.querySelector(".table-wrapper");
   const answer: HTMLInputElement | null = document.querySelector(
     ".layout-field-text-answer"
   );
 
   const handleHelpButtonClick = (): void => {
-    console.log("click");
+    data[level].answer.forEach((answerItem) => {
+      console.log("answer", answer);
+      if (answer) {
+        answer.classList.add("layout-field-text-answer-active");
+        answer.value = answerItem;
+      }
+    });
   };
   helpButton?.addEventListener("click", handleHelpButtonClick);
 };

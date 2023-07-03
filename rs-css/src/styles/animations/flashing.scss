@@ -1,0 +1,15 @@
+@import '../variables.scss';
+
+@keyframes flashing {
+    0% {
+        background-color: rgba(69, 190, 195, 0.5);
+    }
+
+    50% {
+        background-color: transparent;
+    }
+
+    100% {
+        background-color: rgba(69, 190, 195, 0.5);
+    }
+}

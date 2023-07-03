@@ -1,11 +1,15 @@
 @keyframes blinkСaret {
 
-    from,
-    to {
-        border-color: transparent
-    }
+    // from,
+    // to {
+    //     border-color: transparent;
+    // }
 
-    50% {
-        border-color: orange
+    // 50% {
+    //     border-color: orange;
+    // }
+
+    to {
+        border-color: transparent;
     }
 }

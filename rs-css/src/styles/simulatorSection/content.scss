@@ -4,6 +4,7 @@
 @import '../animations/typing.scss';
 @import '../animations/blinkCaret.scss';
 @import '../animations/slideIn.scss';
+@import '../animations/flashing.scss';
 @import './table.scss';
 
 
@@ -12,17 +13,33 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 50px;
 
     &-title {
         font-family: $rowdiesRegular;
         font-size: 2.5em;
         color: $primaryLight;
-        letter-spacing: 0.3em;
+        letter-spacing: 0.2em;
         margin: 0;
+        text-transform: uppercase;
     }
 
     &-button {
         cursor: pointer;
+        border: 1px solid $primaryDark;
+        border-radius: 4px;
+        padding: 5px;
+        background-color: transparent;
+        color: $secondary;
+        margin-top: 20px;
+        transition: color .3 ease, background-color .3s ease;
+        cursor: pointer;
+
+        &:hover {
+            color: $bg;
+            background-color: $primaryDark;
+            transition: color .3 ease, background-color .3s ease;
+        }
     }
 
 }
@@ -83,23 +100,27 @@
         &-answer {
 
             height: 30px;
-            width: 300px;
-            background-color: $bg;
+            // width: 300px;
+            background-color: transparent;
             border: 1px solid $secondary;
             border-radius: 4px;
-            color: $primaryLight;
+            color: $white;
             margin-left: 10px;
+            display: inline-block;
+            overflow: hidden;
+            animation: flashing 3s infinite;
+
+            &:active {
+                border: 1px solid $secondary;
+            }
 
             &-active {
-                font-family: monospace;
-                overflow: hidden;
+                // padding: 0 5px;
+                // box-sizing: border-box;
                 border-right: .15em solid $primaryDark;
-                white-space: nowrap;
-                margin: 0 auto;
-                letter-spacing: .15em;
-                animation:
-                    typing 3.5s steps(30, end),
-                    blinkCaret .5s step-end infinite;
+                // margin: 0 auto;
+                // animation: typing 3.5s steps(30, end), blinkCaret .5s step-end infinite;
+                animation: typing 1s steps(40), blink-caret 0.5s step-end infinite alternate;
             }
 
         }
