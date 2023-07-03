@@ -3,14 +3,15 @@
 @import '../animations/shake.scss';
 @import '../animations/typing.scss';
 @import '../animations/blinkCaret.scss';
+@import '../animations/slideIn.scss';
 @import './table.scss';
+
 
 .content {
 
     display: flex;
     flex-direction: column;
     align-items: center;
-
 
     &-title {
         font-family: $rowdiesRegular;
@@ -74,9 +75,20 @@
     }
 
     &-text {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
         margin-left: 1em;
 
         &-answer {
+
+            height: 30px;
+            width: 300px;
+            background-color: $bg;
+            border: 1px solid $secondary;
+            border-radius: 4px;
+            color: $primaryLight;
+            margin-left: 10px;
 
             &-active {
                 font-family: monospace;
@@ -90,6 +102,10 @@
                     blinkCaret .5s step-end infinite;
             }
 
+        }
+
+        &-button {
+            height: 30px;
         }
     }
 

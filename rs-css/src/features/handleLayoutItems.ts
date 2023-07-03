@@ -1,46 +1,91 @@
 import { IData } from "../interfaces/IData";
+import { createTooltips } from "./createTooltip";
+import { createNewMarkedItemsArr } from "../utils/createNewMarkedItemsArr";
 
-export const handleLayoutItems = (data: IData[]) => {
-    document.addEventListener('DOMContentLoaded', () => {
-        const layoutItems = document.querySelectorAll('.layout-field-html-item');
-        const table: HTMLElement | null = document.querySelector('.table');
-        const tableChildren = table?.children;
-        let isMarked = false;
-        const tooltip = document.createElement('div');
-        tooltip.classList.add('tooltip');
+export const handleLayoutItems = (data: IData[], level: number) => {
+  const layoutItems = document.querySelectorAll(".layout-field-html-item");
+  const table: HTMLElement | null = document.querySelector(".table");
+  const tableChildren = table?.children;
 
-        layoutItems.forEach((element) => {
-            const handleLayoutItemsMouseover = (e: Event) => {
-                const target = e.target as HTMLElement | null;
-                if (target && tableChildren) {
-                    Array.from(tableChildren).forEach((item: Element) => {
-                        if (item.id === target.id) {
+  createTooltips(tableChildren, data, level);
 
-                            data.forEach((elem) => {
-                                elem.layout.forEach((e) => {
-                                    if (Number(e.id) === Number(target.id)) {
-                                        tooltip.innerHTML = target.innerHTML;
-                                    }
-                                })
-                            })
+  const handleLayoutItemsMouseOver = (e: Event) => {
+    const layoutItemEl = e.target as HTMLElement | null;
 
-                            if (!isMarked) {
-                                item.appendChild(tooltip);
+    layoutItemEl &&
+      tableChildren &&
+      Array.from(tableChildren).forEach((item: Element) => {
+        if (
+          (item as HTMLElement).dataset.layoutId ===
+          layoutItemEl?.dataset.layoutId
+        ) {
+          const id = layoutItemEl?.dataset.layoutId;
+          let markedItemsArr: number[] = [];
 
-                                item.classList.add('shadow');
-                                isMarked = true;
-                            } else {
-                                item.classList.remove('shadow');
-                                item.removeChild(tooltip);
-                                isMarked = false;
-                            }
-                        }
-                    });
-                }
+          layoutItems.forEach((el, idx) => {
+            if ((el as HTMLElement).dataset.layoutId === id) {
+              markedItemsArr.push(idx);
+              markedItemsArr = createNewMarkedItemsArr(markedItemsArr);
+
+              markedItemsArr.forEach((elem) => {
+                layoutItems[elem].classList.add(
+                  "layout-field-html-item-active"
+                );
+              });
             }
+          });
 
-            element.addEventListener('mouseover', handleLayoutItemsMouseover);
-            element.addEventListener('mouseout', handleLayoutItemsMouseover);
-        });
+          item.classList.add("table-item--active-tooltip");
+          item.classList.add("shadow");
+        }
+
+        item.children &&
+          Array.from(item.children).forEach((item2Level: Element) => {
+            if (
+              (item2Level as HTMLElement).dataset.layoutId ===
+              layoutItemEl?.dataset.layoutId
+            ) {
+              item2Level.classList.add("table-item--active-tooltip");
+              item2Level.classList.add("shadow");
+            }
+          });
+      });
+  };
+
+  const handleLayoutItemsMouseOut = (e: Event) => {
+    const layoutItemEl = e.target as HTMLElement | null;
+
+    layoutItemEl &&
+      tableChildren &&
+      Array.from(tableChildren).forEach((item: Element) => {
+        if (
+          (item as HTMLElement).dataset.layoutId ===
+          layoutItemEl?.dataset.layoutId
+        ) {
+          item.classList.remove("table-item--active-tooltip");
+          item.classList.remove("shadow");
+        }
+
+        item.children &&
+          Array.from(item.children).forEach((item2Level: Element) => {
+            if (
+              (item2Level as HTMLElement).dataset.layoutId ===
+                layoutItemEl?.dataset.layoutId &&
+              !item2Level.classList.contains("tooltip")
+            ) {
+              item2Level.classList.remove("table-item--active-tooltip");
+              item2Level.classList.remove("shadow");
+            }
+          });
+      });
+
+    layoutItems.forEach((element) => {
+      element.classList.remove("layout-field-html-item-active");
     });
-}
+  };
+
+  Array.from(layoutItems).forEach((element) => {
+    element.addEventListener("mouseover", handleLayoutItemsMouseOver);
+    element.addEventListener("mouseout", handleLayoutItemsMouseOut);
+  });
+};

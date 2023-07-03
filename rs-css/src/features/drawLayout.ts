@@ -1,20 +1,18 @@
 import { IData } from '../interfaces/IData';
 
-export const drawLayout = (data: IData[], level: string): void => {
+export const drawLayout = (data: IData[], level: number): void => {
     const htmlField = document.querySelector('.layout-field-html');
-
-    const levelNumber = Number(level) + 1;
-    const index = levelNumber - 1;
+    const levelNumber = level + 1;
 
     if (htmlField) {
-
         htmlField.textContent = '';
 
-        if (data[index].id === String(levelNumber)) {
-            data[index].layout.forEach((item) => {
+        if (data[level].id === String(levelNumber)) {
+            data[level].layout.forEach((item) => {
                 const divElem = document.createElement('div');
+
                 divElem.classList.add('layout-field-html-item');
-                divElem.setAttribute('id', `${item.id}`);
+                divElem.dataset.layoutId = item.id;
                 htmlField.appendChild(divElem);
                 divElem.textContent += item.text;
             });

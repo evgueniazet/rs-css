@@ -1,56 +1,52 @@
-import { IData } from '../interfaces/IData';
+import { createNewMarkedItemsArr } from "../utils/createNewMarkedItemsArr";
 
-export const handleTableElements = (data: IData[]): void => {
-    const table: HTMLElement | null = document.querySelector('.table');
-    let isMarked = false;
-    const tooltip = document.createElement('div');
-    tooltip.classList.add('tooltip');
+export const handleTableElements = (): void => {
+  const table: HTMLElement | null = document.querySelector(".table");
+  const tooltip = document.createElement("div");
+  tooltip.classList.add("tooltip");
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const htmlFieldItemArr = document.querySelectorAll('.layout-field-html-item');
+  const htmlFieldItemArr = document.querySelectorAll(".layout-field-html-item");
 
-        if (table && htmlFieldItemArr) {
+  if (table && htmlFieldItemArr) {
+    const childrenTable = table.children;
 
-            const childrenTable = table.children;
-            const childrenTableArr = Array.from(childrenTable);
+    Array.from(childrenTable).forEach((element) => {
+      const handleLayoutItemsMouseOver = (e: Event) => {
+        let markedItemsArr: number[] = [];
+        const tableElement = e.target as HTMLElement | null;
+        tableElement &&
+          htmlFieldItemArr.forEach((item, index) => {
+            if (
+              (item as HTMLElement).dataset.layoutId ===
+              tableElement?.dataset.layoutId
+            ) {
+              markedItemsArr.push(index);
+              markedItemsArr = createNewMarkedItemsArr(markedItemsArr);
 
-            const handleChildMouseOver = (e: Event) => {
+              tableElement.classList.add("table-item--active-tooltip");
+              tableElement.classList.add("shadow");
+              markedItemsArr.forEach((elem) => {
+                htmlFieldItemArr[elem].classList.add(
+                  "layout-field-html-item-active"
+                );
+              });
+            }
+          });
+      };
 
-                const targetElement = e.target as HTMLElement | null;
-                const id = targetElement?.getAttribute('id');
+      const handleLayoutItemsMouseOut = (e: Event) => {
+        const tableElement = e.target as HTMLElement | null;
 
+        tableElement &&
+          htmlFieldItemArr.forEach((item) => {
+            tableElement.classList.remove("table-item--active-tooltip");
+            tableElement.classList.remove("shadow");
+            item.classList.remove("layout-field-html-item-active");
+          });
+      };
 
-                htmlFieldItemArr.forEach((item) => {
-                    if (Number(id) === Number(item.id)) {
-
-                        htmlFieldItemArr
-                        if (!isMarked) {
-                            (item as HTMLElement).classList.add('layout-field-html-item-active');
-                            isMarked = true;
-
-                            if (targetElement && tooltip) {
-                                targetElement.classList.add('shadow');
-                                targetElement.appendChild(tooltip);
-                                tooltip.innerHTML = item.innerHTML
-                            }
-
-                        } else {
-                            (item as HTMLElement).classList.remove('layout-field-html-item-active');
-                            isMarked = false;
-
-                            if (targetElement && tooltip) {
-                                targetElement.classList.remove('shadow');
-                                targetElement.removeChild(tooltip);
-                            }
-                        }
-                    }
-                });
-            };
-
-            childrenTableArr.forEach((child) => {
-                child.addEventListener('mouseover', handleChildMouseOver);
-                child.addEventListener('mouseout', handleChildMouseOver);
-            });
-        }
+      element.addEventListener("mouseover", handleLayoutItemsMouseOver);
+      element.addEventListener("mouseout", handleLayoutItemsMouseOut);
     });
+  }
 };

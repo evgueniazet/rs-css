@@ -1,21 +1,18 @@
 import './styles/styles.scss';
 import data from './data.json';
-import { drawTable } from './features/drawTable';
+import { drawElements } from "./features/drawElements";
 import { drawLayout } from './features/drawLayout';
 import { handleTableElements } from './features/handleTableElements';
 import { handleAnswer } from './features/handleIAnswer';
 import { handleHelpButton } from './features/handleHelpButton';
-import { handleLayoutItems} from './features/handleLayoutItems';
+import { handleLayoutItems } from './features/handleLayoutItems';
 // const hljs = require('highlight.js');
 
-const level = localStorage.getItem('gameLevel');
+const level = Number(localStorage.getItem('gameLevel'));
 
-drawTable(data);
-handleTableElements(data);
+drawElements(data, level);
+drawLayout(data, level);
+handleTableElements();
+handleLayoutItems(data, level);
 handleAnswer(data);
-handleHelpButton(data);
-handleLayoutItems(data);
-
-if (level !== null) {
-    drawLayout(data, level);
-}
+// handleHelpButton(data);

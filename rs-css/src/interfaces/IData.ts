@@ -1,11 +1,11 @@
 interface ILayoutItem {
-    id: number;
+    id: string;
     text: string;
 }
 
 interface IElement {
-    id: string | number;
-    text: string[];
+    id: string;
+    text: string;
     children?: IElement[];
 }
 

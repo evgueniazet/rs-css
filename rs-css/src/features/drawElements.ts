@@ -1,4 +1,3 @@
-import { log } from "console";
 import { IData } from "../interfaces/IData";
 
 export const drawElements = (data: IData[], level: number) => {
@@ -11,19 +10,17 @@ export const drawElements = (data: IData[], level: number) => {
     }
 
     if (data[level]) {
-
         data[level].elements.forEach((item) => {
 
             table.innerHTML += item.text;
 
             if (item.children && item.children.length > 0) {
-
                 for (let i = 0; i < tableChildren.length; i++) {
 
-                    if (Number(tableChildren[i].id) === Number(item.id)) {
+                    if (Number((tableChildren[i] as HTMLElement).dataset.layoutId) === Number(item.id)) {
 
                         item.children.forEach((child) => {
-                            tableChildren[i].innerHTML = child.text[0];
+                            tableChildren[i].innerHTML = child.text;
                         })
                     }
                 }

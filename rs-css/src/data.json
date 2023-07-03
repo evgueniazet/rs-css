@@ -2,18 +2,18 @@
   {
     "id": "1",
     "layout": [
-      { "id": 1, "text": "<lemon/>" },
-      { "id": 2, "text": "<lemon/>" }
+      { "id": "1", "text": "<lemon/>" },
+      { "id": "2", "text": "<lemon/>" }
     ],
     "elements": [
       {
-        "id": 1,
-        "text": ["<div id=\"1\" class=\"lemon first-elem active\"></div>"],
+        "id": "1",
+        "text": "<div data-layout-id=\"1\" class=\"table-item lemon active\"></div>",
         "children": []
       },
       {
-        "id": 2,
-        "text": ["<div id=\"2\"  class=\"lemon second-elem active\"></div>"],
+        "id": "2",
+        "text": "<div data-layout-id=\"2\"  class=\"table-item lemon active\"></div>",
         "children": []
       }
     ],
@@ -23,21 +23,19 @@
   {
     "id": "2",
     "layout": [
-      { "id": 1, "text": "<plate>" },
-      { "id": 2, "text": "<plate class=\"plate\">" }
+      { "id": "1", "text": "<plate>" },
+      { "id": "2", "text": "<plate class=\"plate\">" }
     ],
     "elements": [
       {
-        "id": 1,
-        "text": ["<plate id=\"1\" class=\"plate first-elem-plate \">"],
+        "id": "1",
+        "text": "<plate data-layout-id=\"1\" class=\"table-item plate \">",
         "children": []
       },
 
       {
-        "id": 2,
-        "text": [
-          "<plate id=\"1\" class=\"plate plate-orange second-elem-plate active \">"
-        ],
+        "id": "2",
+        "text": "<plate data-layout-id=\"2\" class=\"table-item plate plate-orange active \">",
         "children": []
       }
     ],
@@ -47,29 +45,27 @@
   {
     "id": "3",
     "layout": [
-      { "id": 1, "text": "<plate>" },
-      { "id": 2, "text": "  <lemon/>" },
-      { "id": 3, "text": "</plate>" },
-      { "id": 4, "text": "<plate/>" }
+      { "id": "1", "text": "<plate>" },
+      { "id": "3", "text": "  <lemon/>" },
+      { "id": "1", "text": "</plate>" },
+      { "id": "2", "text": "<plate/>" }
     ],
     "elements": [
       {
-        "id": 1,
-        "text": ["<plate id=\"1\" class=\"plate first-elem-plate \">"],
+        "id": "1",
+        "text": "<plate data-layout-id=\"1\" class=\"table-item plate \">",
         "children": [
           {
-            "id": 1,
-            "text": [
-              "<div id=\"1\" class=\"lemon first-elem-inside active\"></div>"
-            ],
+            "id": "3",
+            "text": "<div data-layout-id=\"3\" class=\"table-item lemon active\"></div>",
             "children": []
           }
         ]
       },
 
       {
-        "id": 2,
-        "text": ["<div id=\"2\" class=\"plate second-elem-plate\">"],
+        "id": "2",
+        "text": "<div data-layout-id=\"2\" class=\"table-item plate\">",
         "children": []
       }
     ],
@@ -79,39 +75,38 @@
   {
     "id": "4",
     "layout": [
-      { "id": 1, "text": "<lemon/>" },
-      { "id": 2, "text": "<orange/>" },
-      { "id": 3, "text": "<plate>" },
-      { "id": 4, "text": "<lemon/>" },
-      { "id": 5, "text": "<orange id=\"orange\"/>" }
+      { "id": "1", "text": "<lemon/>" },
+      { "id": "2", "text": "<orange/>" },
+      { "id": "3", "text": "<plate>" },
+      { "id": "4", "text": "<lemon/>" },
+      { "id": "3", "text": "</plate>" },
+      { "id": "5", "text": "<orange id=\"orange\"/>" }
     ],
     "elements": [
       {
-        "id": 1,
-        "text": ["<div id=\"1\" class=\"lemon first-elem \"></div>"],
+        "id": "1",
+        "text": "<div data-layout-id=\"1\" class=\"table-item lemon\"></div>",
         "children": []
       },
       {
-        "id": 2,
-        "text": ["<div id=\"2\" class=\"orange second-elem \">"],
+        "id": "2",
+        "text": "<div data-layout-id=\"2\" class=\"table-item orange\">",
         "children": []
       },
       {
-        "id": 3,
-        "text": ["<div id=\"3\" class=\"plate plate-pink third-elem-plate \">"],
+        "id": "3",
+        "text": "<div data-layout-id=\"3\" class=\"table-item plate plate-pink \">",
         "children": [
           {
-            "id": 1,
-            "text": ["<div id=\"1\" class=\"lemon first-elem-inside \">"],
+            "id": "1",
+            "text": "<div data-layout-id=\"4\" class=\"table-item lemon \">",
             "children": []
           }
         ]
       },
       {
-        "id": 4,
-        "text": [
-          "<div id=\"4\" class=\"orange orange-small fourth-elem  active\">"
-        ],
+        "id": "4",
+        "text": "<div data-layout-id=\"5\" class=\"table-item orange  active\">",
         "children": []
       }
     ],
@@ -120,44 +115,38 @@
   {
     "id": "5",
     "layout": [
-      { "id": 1, "text": "<plate class=\"orange\"/>" },
-      { "id": 2, "text": "<plate class=\"plate\">" },
-      { "id": 3, "text": "  <orange class=\"orange\">" },
-      { "id": 4, "text": "<plate/>" },
-      { "id": 5, "text": "<plate class=\"pink\"/>" },
-      { "id": 6, "text": "<orange class=\"orange\"/>" },
-      { "id": 7, "text": "<plate/>" }
+      { "id": "1", "text": "<plate class=\"orange\"/>" },
+      { "id": "2", "text": "<plate class=\"plate\">" },
+      { "id": "3", "text": "  <orange class=\"orange\">" },
+      { "id": "2", "text": "<plate/>" },
+      { "id": "4", "text": "<plate class=\"pink\"/>" },
+      { "id": "5", "text": "<orange class=\"orange\"/>" },
+      { "id": "4", "text": "<plate/>" }
     ],
     "elements": [
       {
-        "id": 1,
-        "text": [
-          "<plate id=\"1\" class=\"plate plate-orange first-elem-plate \">"
-        ],
+        "id": "1",
+        "text": "<plate data-layout-id=\"1\" class=\"table-item plate plate-orange\">",
         "children": []
       },
       {
-        "id": 2,
-        "text": ["<plate id=\"2\" class=\"plate second-elem-plate \">"],
+        "id": "2",
+        "text": "<plate data-layout-id=\"2\" class=\"table-item plate \">",
         "children": [
           {
-            "id": 1,
-            "text": [
-              "<div id=\"1\" class=\"orange first-elem-inside active \">"
-            ],
+            "id": "1",
+            "text": "<div data-layout-id=\"3\" class=\"table-item orange active \">",
             "children": []
           }
         ]
       },
       {
-        "id": 3,
-        "text": [
-          "<plate id=\"3\" class=\"plate plate-pink third-elem-plate \">"
-        ],
+        "id": "3",
+        "text": "<plate data-layout-id=\"4\" class=\"table-item plate plate-pink  \">",
         "children": [
           {
-            "id": 1,
-            "text": ["<div id=\"1\" class=\"orange first-elem-inside \">"],
+            "id": "1",
+            "text": "<div data-layout-id=\"5\" class=\"table-item orange  \">",
             "children": []
           }
         ]
