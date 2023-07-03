@@ -24,44 +24,18 @@ module.exports = {
                 use: 'ts-loader',
                 exclude: /node_modules/,
             },
-            // {
-            //   test: /\.ts$/,
-            //   exclude: /node_modules/,
-            //   use: ['ts-loader'],
-            // },
-            // {
-            //   test: /.[tj]s$/,
-            //   use: 'ts-loader',
-            //   exclude: /node_modules/,
-            // },
-            // {
-            //   test: /\.(png|svg|jpg|jpeg|gif)$/i,
-            //   type: 'asset/resource',
-            // },
-            // {
-            //   test: /\.mp3$/,
-            //   use: [
-            //     {
-            //       loader: 'file-loader',
-            //       options: {
-            //         name: '[name].[ext]',
-            //         outputPath: 'audio'
-            //       }
-            //     }
-            //   ]
-            // },
-            //   {
-            //     test: /\.(woff|woff2|eot|ttf|otf)$/,
-            //     use: [
-            //       {
-            //         loader: 'file-loader',
-            //         options: {
-            //           name: '[name].[ext]',
-            //           outputPath: 'fonts'
-            //         }
-            //       }
-            //     ]
-            //   },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'fonts'
+                        }
+                    }
+                ]
+            },
             {
                 test: /\.html$/,
                 use: 'html-loader',
@@ -71,12 +45,6 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
         modules: ['node_modules', 'src']
-        // alias: {
-        //     '@features': path.resolve(__dirname, 'src/features'),
-        //   },
-        // plugins: [
-        //   new TsconfigPathsPlugin({ configFile: './tsconfig.json' }),
-        // ]
     },
     plugins: [
         new HtmlWebpackPlugin({
