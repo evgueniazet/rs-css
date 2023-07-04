@@ -1,4 +1,5 @@
 import { IData } from "../interfaces/IData";
+import { addWinMessage } from "./addWinMessage";
 import { updateLevel } from "./updateLevel";
 
 export const handleAnswer = (data: IData[]) => {
@@ -7,6 +8,7 @@ export const handleAnswer = (data: IData[]) => {
   const answerInput: HTMLInputElement | null = document.querySelector(
     ".layout-field-text-answer"
   );
+
   const levelKey = "gameLevel";
 
   const handleAnswerSubmit = () => {
@@ -28,11 +30,14 @@ export const handleAnswer = (data: IData[]) => {
       );
 
       if (isAnswerCorrect && answerInput) {
-        const newLevel = level + 1;
-
-        answerInput.value = "";
-        localStorage.setItem(levelKey, String(newLevel));
-        updateLevel(data, newLevel);
+        if (level < data.length - 1) {
+          const newLevel = level + 1;
+          answerInput.value = "";
+          localStorage.setItem(levelKey, String(newLevel));
+          updateLevel(data, newLevel);
+        } else {
+          addWinMessage();
+        }
       } else {
         layoutField?.classList.add("layout-field-active");
 

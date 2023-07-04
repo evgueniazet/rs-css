@@ -17,7 +17,15 @@
         "children": []
       }
     ],
-    "answer": ["lemon"],
+    "answer": [
+      "lemon",
+      "div lemon",
+      ".table lemon",
+      "div.table lemon",
+      "div > lemon",
+      ".table > lemon",
+      "div.table > lemon"
+    ],
     "help": {
       "title": "Type Selector",
       "description": "Select elements by their type\n<mark>A</mark>\nSelects all elements of type <mark>A</mark>.\nType refers to the type of tag, so <mark>&lt;div&gt;</mark>, <mark>&lt;p&gt;</mark> and <mark>&lt;ul&gt;</mark>\nare all different element types.",
@@ -53,7 +61,16 @@
         "children": []
       }
     ],
-    "answer": ["lemon", "plate lemon"],
+    "answer": [
+      "lemon",
+      "plate lemon",
+      "div lemon",
+      ".table lemon",
+      "div.table lemon",
+      "div plate lemon",
+      ".table plate lemon",
+      "div.table plate lemon"
+    ],
     "help": {
       "title": "Type Selector",
       "description": "Select elements by their type\n<mark>A</mark>\nSelects all elements of type <mark>A</mark>.\nType refers to the type of tag, so <mark>&lt;div&gt;</mark>, <mark>&lt;p&gt;</mark> and <mark>&lt;ul&gt;</mark>\nare all different element types.",
@@ -100,7 +117,7 @@
         "children": []
       }
     ],
-    "answer": ["#orange"],
+    "answer": ["#orange", "div #orange", ".table #orange"],
     "help": {
       "title": "ID Selector",
       "description": "Select elements with an ID\n<mark>#id</mark>\nSelects the element with a specific <mark>id</mark>.\nYou can also combine the\nID selector with the type selector.",
@@ -128,7 +145,12 @@
         "children": []
       }
     ],
-    "answer": ["plate:nth-child(2)"],
+    "answer": [
+      "plate:nth-child(2)",
+      "div plate:nth-child(2)",
+      ".table plate:nth-child(2)",
+      "div.table plate:nth-child(2)"
+    ],
     "help": {
       "title": "Nth Child Pseudo-selector",
       "description": "Select an element by its order\nin another element <mark>:nth-child(A)</mark>\nSelects the <mark>nth</mark> (Ex: 1st, 3rd, 12th etc.)\nchild element in another element.",

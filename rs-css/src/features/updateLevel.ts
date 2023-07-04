@@ -12,7 +12,6 @@ export const updateLevel = (data: IData[], level: number) => {
   drawLayout(data, level);
   handleTableElements();
   handleLayoutItems(data, level);
-  handleHelpButton(data, level);
-  changeLevel(level, data);
-  addHelpDescription(data, level)
+  changeLevel(data, level);
+  addHelpDescription(data, level);
 };

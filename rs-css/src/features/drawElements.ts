@@ -8,7 +8,7 @@ export const drawElements = (data: IData[], level: number) => {
     table.removeChild(table.firstChild);
   }
 
-  if (data[level]) {
+  if (data[level] && level < data.length) {
     data[level].elements.forEach((item, idx) => {
       table.innerHTML += item.text;
 

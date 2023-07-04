@@ -4,7 +4,7 @@ export const drawLayout = (data: IData[], level: number): void => {
   const htmlField = document.querySelector(".layout-field-html");
   const levelNumber = level + 1;
 
-  if (htmlField) {
+  if (htmlField && level < data.length) {
     htmlField.textContent = "";
 
     if (data[level].id === String(levelNumber)) {

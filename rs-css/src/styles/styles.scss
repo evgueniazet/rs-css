@@ -2,9 +2,11 @@
 @import '~normalize.css';
 @import './simulatorSection/content.scss';
 @import './levelSection.scss/levels.scss';
+@import './animations/glowing.scss';
 
 body {
     display: flex;
+    position: relative;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -18,4 +20,39 @@ mark {
     border-radius: 4px;
     padding: 5px;
     color: $secondary;
+}
+
+.win-message {
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: $primaryLight;
+    width: 50%;
+    height: 30%;
+    border: 2px solid $primaryLight;
+    background-color: transparent;
+    border-radius: 8px;
+    animation: glowing 2s ease-in-out infinite alternate;
+    z-index: 1;
+
+    &-active {
+        display: flex;
+    }
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $bg;
+
+    &-active {
+        display: block;
+    }
 }
