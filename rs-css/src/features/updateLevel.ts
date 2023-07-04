@@ -5,6 +5,7 @@ import { handleTableElements } from "./handleTableElements";
 import { IData } from "../interfaces/IData";
 import { handleHelpButton } from "./handleHelpButton";
 import { changeLevel } from "./changeLevel";
+import { addHelpDescription } from "./addHelpDescription";
 
 export const updateLevel = (data: IData[], level: number) => {
   drawElements(data, level);
@@ -13,4 +14,5 @@ export const updateLevel = (data: IData[], level: number) => {
   handleLayoutItems(data, level);
   handleHelpButton(data, level);
   changeLevel(level, data);
+  addHelpDescription(data, level)
 };

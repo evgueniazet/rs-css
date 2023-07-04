@@ -7,6 +7,7 @@ import { handleAnswer } from "./features/handleIAnswer";
 import { handleHelpButton } from "./features/handleHelpButton";
 import { handleLayoutItems } from "./features/handleLayoutItems";
 import { changeLevel } from "./features/changeLevel";
+import { addHelpDescription } from "./features/addHelpDescription";
 
 const level = Number(localStorage.getItem("gameLevel"));
 
@@ -17,3 +18,4 @@ handleLayoutItems(data, level);
 handleAnswer(data);
 handleHelpButton(data, level);
 changeLevel(level, data);
+addHelpDescription(data, level);

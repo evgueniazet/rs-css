@@ -15,7 +15,8 @@ export const handleAnswer = (data: IData[]) => {
     if (
       answerInput &&
       Number(answerInput.value) &&
-      Number(answerInput.value) < data.length
+      Number(answerInput.value) < data.length &&
+      Number(answerInput.value) > 0
     ) {
       const newLevelNumber = Number(answerInput.value) - 1;
       localStorage.setItem(levelKey, String(newLevelNumber));

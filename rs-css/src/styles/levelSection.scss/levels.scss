@@ -1,14 +1,16 @@
 @import '../variables.scss';
 
-.wrapper-levels {
-    height: 80%;
-    width: 400px;
-    border: 1px solid $primaryLight;
-    border-radius: 5px;
-}
-
 .levels {
     padding: 20px;
+
+    &-container {
+        height: 80%;
+        width: 400px;
+        border: 1px solid $primaryLight;
+        border-radius: 5px;
+        margin-right: 30px;
+
+    }
 
     &-title {
         margin: 0;
@@ -35,13 +37,41 @@
         cursor: pointer;
 
         &:not(:first-child) {
-            margin-left: 10px;
+            margin-left: 8px;
         }
 
         &:hover {
             color: $bg;
             background-color: $primaryDark;
             transition: color .3 ease, background-color .3s ease;
+        }
+    }
+
+    &-help {
+        white-space: pre;
+
+        margin-top: 20px;
+        font-family: $rowdiesLight;
+
+        &-title {
+            font-size: 20px;
+            color: $primaryDark;
+        }
+
+        &-description {
+            color: $secondary;
+            line-height: 1.7em;
+        }
+
+        &-subtitle {
+            font-size: 18px;
+            color: $secondary;
+            text-decoration: underline;
+        }
+
+        &-example {
+            color: $secondary;
+            line-height: 2.1em;
         }
     }
 }

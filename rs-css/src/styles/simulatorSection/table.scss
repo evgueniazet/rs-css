@@ -2,10 +2,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: no-repeat center/60% url('../../../src/images/table.png');
+    background: no-repeat center/85% url('../../../src/images/table.png');
     height: 300px;
     width: 900px;
-    padding-bottom: 50px;
+    padding-bottom: 80px;
 }
 
 .shadow {
@@ -54,6 +54,11 @@
     border-radius: 70% 100% / 30% 100%;
     border: 1px solid $secondary;
     cursor: pointer;
+
+    &-small {
+        width: 30px;
+        height: 30px;
+    }
 }
 
 .orange {
@@ -63,6 +68,15 @@
     border: 1px solid $secondary;
     background: linear-gradient(45deg, #ff710c, #fa9146, #ff710c);
 }
+
+.tomato {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid $secondary;
+    background: linear-gradient(45deg, #f50d0d, #f83030, #f86060);
+}
+
 
 
 .plate {

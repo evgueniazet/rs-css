@@ -17,36 +17,20 @@
         "children": []
       }
     ],
-    "answer": ["lemon"]
+    "answer": ["lemon"],
+    "help": {
+      "title": "Type Selector",
+      "description": "Select elements by their type\n<mark>A</mark>\nSelects all elements of type <mark>A</mark>.\nType refers to the type of tag, so <mark>&lt;div&gt;</mark>, <mark>&lt;p&gt;</mark> and <mark>&lt;ul&gt;</mark>\nare all different element types.",
+      "subtitle": "Examples",
+      "example": "<mark>div</mark> selects all <mark>&lt;div&gt;</mark> element <mark>p</mark> selects\nall <mark>&lt;p&gt;</mark> elements."
+    }
   },
 
   {
     "id": "2",
     "layout": [
       { "id": "1", "text": "<plate>" },
-      { "id": "2", "text": "<plate class=\"plate\">" }
-    ],
-    "elements": [
-      {
-        "id": "1",
-        "text": "<div data-layout-id=\"1\" class=\"table-item plate \">",
-        "children": []
-      },
-
-      {
-        "id": "2",
-        "text": "<div data-layout-id=\"2\" class=\"table-item plate plate-orange active \">",
-        "children": []
-      }
-    ],
-    "answer": [".plate"]
-  },
-
-  {
-    "id": "3",
-    "layout": [
-      { "id": "1", "text": "<plate>" },
-      { "id": "3", "text": "  <lemon/>" },
+      { "id": "3", "text": "    <lemon/>" },
       { "id": "1", "text": "</plate>" },
       { "id": "2", "text": "<plate/>" }
     ],
@@ -69,16 +53,22 @@
         "children": []
       }
     ],
-    "answer": ["lemon"]
+    "answer": ["lemon", "plate lemon"],
+    "help": {
+      "title": "Type Selector",
+      "description": "Select elements by their type\n<mark>A</mark>\nSelects all elements of type <mark>A</mark>.\nType refers to the type of tag, so <mark>&lt;div&gt;</mark>, <mark>&lt;p&gt;</mark> and <mark>&lt;ul&gt;</mark>\nare all different element types.",
+      "subtitle": "Examples",
+      "example": "<mark>div</mark> selects all <mark>&lt;div&gt;</mark> element <mark>p</mark> selects\nall <mark>&lt;p&gt;</mark> elements."
+    }
   },
 
   {
-    "id": "4",
+    "id": "3",
     "layout": [
       { "id": "1", "text": "<lemon/>" },
       { "id": "2", "text": "<orange/>" },
-      { "id": "3", "text": "<plate>" },
-      { "id": "4", "text": "<lemon/>" },
+      { "id": "3", "text": "<plate/>" },
+      { "id": "4", "text": "    <lemon/>" },
       { "id": "3", "text": "</plate>" },
       { "id": "5", "text": "<orange id=\"orange\"/>" }
     ],
@@ -110,15 +100,50 @@
         "children": []
       }
     ],
-    "answer": ["#orange"]
+    "answer": ["#orange"],
+    "help": {
+      "title": "ID Selector",
+      "description": "Select elements with an ID\n<mark>#id</mark>\nSelects the element with a specific <mark>id</mark>.\nYou can also combine the\nID selector with the type selector.",
+      "subtitle": "Examples",
+      "example": "<mark>#cool</mark> selects any element with <mark>id=\"cool\"</mark>\n<mark>ul#long</mark> selects<mark>&lt;ul id=\"long\"&gt;</mark>"
+    }
   },
+
+  {
+    "id": "4",
+    "layout": [
+      { "id": "1", "text": "<plate/>" },
+      { "id": "2", "text": "<plate/>" }
+    ],
+    "elements": [
+      {
+        "id": "1",
+        "text": "<div data-layout-id=\"1\" class=\"table-item plate \">",
+        "children": []
+      },
+
+      {
+        "id": "2",
+        "text": "<div data-layout-id=\"2\" class=\"table-item plate active \">",
+        "children": []
+      }
+    ],
+    "answer": ["plate:nth-child(2)"],
+    "help": {
+      "title": "Nth Child Pseudo-selector",
+      "description": "Select an element by its order\nin another element <mark>:nth-child(A)</mark>\nSelects the <mark>nth</mark> (Ex: 1st, 3rd, 12th etc.)\nchild element in another element.",
+      "subtitle": "Examples",
+      "example": "<mark>:nth-child(8)</mark> selects every element that is the\n8th child of another element.\n<mark>div p:nth-child(2)</mark> selects\nthe second ,<mark>p</mark> in every <mark>div</mark>"
+    }
+  },
+
   {
     "id": "5",
     "layout": [
       { "id": "1", "text": "<plate class=\"orange\"/>" },
       { "id": "2", "text": "<plate class=\"plate\">" },
-      { "id": "3", "text": "  <orange class=\"orange\">" },
-      { "id": "2", "text": "<plate/>" },
+      { "id": "3", "text": "      <orange class=\"orange\">" },
+      { "id": "2", "text": "</plate>" },
       { "id": "4", "text": "<plate class=\"pink\"/>" },
       { "id": "5", "text": "<orange class=\"orange\"/>" },
       { "id": "4", "text": "<plate/>" }
@@ -152,6 +177,92 @@
         ]
       }
     ],
-    "answer": [".plate .orange"]
+    "answer": [
+      ".plate .orange",
+      "plate .orange",
+      "plate orange",
+      ".plate orange"
+    ],
+    "help": {
+      "title": "Descendant Selector",
+      "description": "Select an element inside another element\n<mark>A B</mark>\nSelects all <mark>B</mark> inside\nof <mark>A</mark>.\nB is called a descendant because\nit is inside of another element.",
+      "subtitle": "Examples",
+      "example": "<mark>p  strong</mark> selects all <mark>&#8249;strong&#8250;</mark> elements\nthat are inside of any &#8249;p&#8250;\n <mark>#fancy  span</mark> selects any &#8249;span&#8250;elements\nthat are inside of the element with <mark>id=\"fancy\"</mark>"
+    }
+  },
+
+  {
+    "id": "6",
+    "layout": [
+      { "id": "1", "text": "<lemon/>" },
+      { "id": "2", "text": "<plate class=\"orange\">" },
+      { "id": "3", "text": "    <tomato/>" },
+      { "id": "2", "text": "</plate>" },
+      { "id": "4", "text": "<lemon/>" },
+      { "id": "5", "text": "<lemon class=\"small\"/>" },
+      { "id": "6", "text": "<plate>" },
+      { "id": "7", "text": "    <lemon class=\"small\">" },
+      { "id": "6", "text": "</plate>" },
+      { "id": "8", "text": "<plate>" },
+      { "id": "9", "text": "     <lemon/>" },
+      { "id": "8", "text": "</plate>" }
+    ],
+    "elements": [
+      {
+        "id": "1",
+        "text": "<div data-layout-id=\"1\" class=\"table-item lemon\">",
+        "children": []
+      },
+      {
+        "id": "2",
+        "text": "<div data-layout-id=\"2\" class=\"table-item plate plate-orange \">",
+        "children": [
+          {
+            "id": "1",
+            "text": "<div data-layout-id=\"3\" class=\"table-item tomato \">",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "text": "<div data-layout-id=\"4\" class=\"table-item lemon active\">",
+        "children": []
+      },
+      {
+        "id": "4",
+        "text": "<div data-layout-id=\"5\" class=\"table-item lemon lemon-small active\">",
+        "children": []
+      },
+      {
+        "id": "5",
+        "text": "<div data-layout-id=\"6\" class=\"table-item plate\">",
+        "children": [
+          {
+            "id": "1",
+            "text": "<div data-layout-id=\"7\" class=\"table-item lemon lemon-small\">",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "text": "<div data-layout-id=\"8\" class=\"table-item plate\">",
+        "children": [
+          {
+            "id": "1",
+            "text": "<div data-layout-id=\"9\" class=\" table-item lemon\">",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "answer": [".orange ~ lemon"],
+    "help": {
+      "title": "General Sibling Selector",
+      "description": "Select elements that follows another element\n<mark>A ~ B</mark>\nYou can select all siblings of\nan element that follow it. \nThis is like the Adjacent Selector (A + B)\nexcept it gets \nall of the following elements instead of one.",
+      "subtitle": "Examples",
+      "example": "<mark>A ~ B</mark> selects all <mark>B</mark> that follow a <mark>A</mark>"
+    }
   }
 ]

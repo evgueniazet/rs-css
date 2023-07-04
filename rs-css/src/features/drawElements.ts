@@ -9,20 +9,13 @@ export const drawElements = (data: IData[], level: number) => {
   }
 
   if (data[level]) {
-    data[level].elements.forEach((item) => {
+    data[level].elements.forEach((item, idx) => {
       table.innerHTML += item.text;
 
-      if (item.children && item.children.length > 0) {
-        for (let i = 0; i < tableChildren.length; i++) {
-          if (
-            Number((tableChildren[i] as HTMLElement).dataset.layoutId) ===
-            Number(item.id)
-          ) {
-            item.children.forEach((child) => {
-              tableChildren[i].innerHTML = child.text;
-            });
-          }
-        }
+      if (item.children && item.children.length) {
+        item.children.forEach((child) => {
+          tableChildren[idx].innerHTML = child.text;
+        });
       }
     });
   }
