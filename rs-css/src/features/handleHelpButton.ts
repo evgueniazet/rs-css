@@ -1,16 +1,15 @@
-import { IData } from "../interfaces/IData";
+import { IData } from '../interfaces/IData';
 
 export const handleHelpButton = (data: IData[]): void => {
-  const helpButton: HTMLButtonElement | null =
-    document.querySelector(".content-button");
+  const helpButton: HTMLButtonElement | null = document.querySelector('.content-button');
   const answer: HTMLInputElement | null = document.querySelector(
-    ".layout-field-text-answer"
+    '.layout-field-text-answer',
   );
 
   let isProcessing = false;
 
   const handleHelpButtonClick = (): void => {
-    const level = Number(localStorage.getItem("gameLevel"));
+    const level = Number(localStorage.getItem('gameLevel'));
 
     if (isProcessing) {
       return;
@@ -28,10 +27,10 @@ export const handleHelpButton = (data: IData[]): void => {
           isProcessing = false;
         }
 
-        counter++;
+        counter += 1;
       }, 200);
     }
   };
 
-  helpButton?.addEventListener("click", handleHelpButtonClick);
+  helpButton?.addEventListener('click', handleHelpButtonClick);
 };

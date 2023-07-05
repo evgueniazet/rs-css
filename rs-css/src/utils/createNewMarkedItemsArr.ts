@@ -4,7 +4,7 @@ export const createNewMarkedItemsArr = (arr: number[]) => {
   if (newArr.length > 1) {
     newArr = Array.from(
       { length: newArr[1] - newArr[0] + 1 },
-      (_, index) => newArr[0] + index
+      (_, index) => newArr[0] + index,
     );
   }
 

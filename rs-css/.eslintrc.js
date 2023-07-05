@@ -20,7 +20,8 @@ module.exports = {
     ],
     "rules": {
         "import/prefer-default-export": "off",
-        "import/extensions": ["error", "never"]
+        "import/extensions": ["error", "never"],
+        'no-unused-expressions': 'off'
     },
     "settings": {
         "import/resolver": {
