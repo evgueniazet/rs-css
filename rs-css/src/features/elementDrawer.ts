@@ -1,4 +1,4 @@
-import { IData } from '../interfaces/IData';
+import { IData } from "../interfaces/IData";
 
 export class ElementDrawer<T extends HTMLElement> {
   private data: IData[];
@@ -10,7 +10,7 @@ export class ElementDrawer<T extends HTMLElement> {
   constructor(data: IData[], level: number) {
     this.data = data;
     this.level = level;
-    this.table = document.querySelector('.table')!;
+    this.table = document.querySelector(".table")!;
   }
 
   public drawElements(): void {

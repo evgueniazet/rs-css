@@ -3,5 +3,5 @@ module.exports = {
     testEnvironment: 'node',
     testRegex: '/test/.*\\.test\\.ts$',
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-  };
-  
+    testEnvironment: "jsdom"
+};

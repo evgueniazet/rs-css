@@ -1,5 +1,5 @@
 import { IData } from '../interfaces/IData';
-import { createTooltips } from './createTooltip';
+import { createTooltips } from './createTooltips';
 import { createNewMarkedItemsArr } from '../utils/createNewMarkedItemsArr';
 
 export const handleLayoutItems = (data: IData[], level: number): void => {
